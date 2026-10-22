@@ -130,6 +130,8 @@ LAPISAN CORE   = kontrak lintas modul, TIDAK punya data domain sendiri
 | `examples/core_index_<project>.md` | Profile pemetaan project → core (di folder `examples/`) | per-project |
 | `core_status.md` | Status, tanggal verifikasi, changelog | volatil |
 | `core_<topik>_api.md` | Kontrak detail satu core | per-project, mengikuti kode |
+| `structures/<stack>/` (`README.md` + `stubs/`) | Peta struktur folder & stub penunjuk per stack | panduan, per-stack |
+| `flows/*.md` | Alur urutan implementasi 5 core (mis. bootstrap dari nol) | panduan, global |
 
 **Langkah menambah modul bisnis baru:**
 1. Baca `README.md` → `core_principles.md` (file ini) → profile project → kontrak core terkait.

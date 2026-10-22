@@ -25,6 +25,8 @@ Status pengerjaan, tanggal verifikasi terhadap kode sumber, riwayat keputusan, d
 | `core_principles.md` | ✅ | Prinsip universal lintas project |
 | `examples/core_index.md` | ✅ | Profile aplikasi contoh (per-project, bukan core base) |
 | `core_status.md` | ✅ | File ini |
+| `structures/` | ✅ | Peta struktur per stack + stub — Laravel (6 stub PHP, `php -l` bersih); Go Fiber (skeleton `go build`/`go vet` hijau, `/health` jalan, 9 endpoint auth stub 501) |
+| `flows/implementation-flow.md` | ✅ | Urutan implementasi 5 core dari nol (fase 0–4: fondasi → auth → CRUD+pagination → RBAC → step-up) |
 
 ---
 
@@ -53,6 +55,8 @@ Status pengerjaan, tanggal verifikasi terhadap kode sumber, riwayat keputusan, d
 | 2026-10-21 | **Core ke-5 disetujui & didokumentasikan** (`core_stepup_security_api.md`): menggabungkan security-policy CRUD, request-action CRUD + consume, dan role seal; challenge tetap di `core_role_permission_api.md` §4 (disambung, tidak diduplikasi) |
 | 2026-10-21 | `core_index.md` **dipindah ke `examples/`** — root kini khusus core base universal (README, principles, 4 kontrak) + status; profile per-project tinggal di `examples/` |
 | 2026-10-21 | **6 file (principles, status, 4 kontrak) dibersihkan dari identitas aplikasi** — 20 wording "stockflow" (judul, intro, email contoh, catatan ops) + 11 nama dokumen/repo (`fe-be-flow`, `flow_*.md`, `docs/api/*`) diganti generik; `examples/core_index.md` & README tetap menyebut aplikasi contoh |
+| 2026-10-21 | Folder **`structures/`** dibuat: peta struktur + stub per stack (Laravel & Go Fiber); skeleton Go terverifikasi `go build`/`go vet` + `/health` berjalan; stub auth dilengkapi 9 endpoint — termasuk koreksi path `/refresh-token` (§2.9) dan rute resend-activation di group users (§2.6, bukan `/auth/activation/resend`) |
+| 2026-10-21 | **`flows/implementation-flow.md`** dibuat: panduan urutan bootstrap 5 core (fase 0–4) — melengkapi `core_principles.md` §7 yang hanya menuntun menambah modul di sistem jalan; keputusan nama repo/entry → **Core API Playbook** (`core-api-playbook`) |
 
 ---
 
@@ -67,5 +71,7 @@ Status pengerjaan, tanggal verifikasi terhadap kode sumber, riwayat keputusan, d
 | Route/modul bisnis baru/tambah di aplikasi | Tambah baris di `examples/core_index.md` §2 |
 | Prinsip berubah (jarang) | Edit `core_principles.md` + baris baru di Riwayat Keputusan |
 | Project baru memakai knowledge ini | Buat `examples/core_index_<project>.md` baru — jangan menimpa profile yang ada |
+| Struktur folder stack berubah (mis. tambah middleware/layer) | Perbarui `structures/<stack>/README.md` + stub terkait |
+| Urutan/prasyarat fase implementasi berubah | Perbarui `flows/implementation-flow.md` |
 
 **Otoritas saat konflik:** kode sumber > `core_*_api.md` > blueprint/reference > `core_status.md` (lihat `README.md`).

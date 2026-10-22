@@ -1,4 +1,4 @@
-# Core Architecture Knowledge Base
+# Core API Playbook
 
 Knowledge base arsitektur inti ("5 core") untuk aplikasi API — dirancang **global (lintas project, lintas sesi, lintas AI agent)**: prinsip universal dipisah dari binding per aplikasi dan dari status yang sering berubah.
 
@@ -16,6 +16,11 @@ README.md              ← kamu di sini: peta baca & aturan
    ├─ examples/              PROFILE per-project (contoh, bukan bagian core base)
    │      └─ core_index.md   Profile aplikasi StockFlow — salin → core_index_<project>.md (struktur di §4)
    │
+   ├─ structures/            PETA STRUKTUR per stack (Laravel, Go Fiber) — tree, pemetaan, stub
+   │
+   ├─ flows/
+   │      └─ implementation-flow.md  URUTAN implementasi 5 core dari nol (fase 0–4)
+   │
    └─ Kontrak detail (per core, mengikuti kode aplikasi):
          core_auth_api.md             Core 1: Auth (9 endpoint, sesi, token, OTP)
          core_role_permission_api.md  Core 2: Role-Permission + step-up challenge
@@ -29,7 +34,7 @@ README.md              ← kamu di sini: peta baca & aturan
 3. Kontrak `core_*_api.md` — detail endpoint, request, response sukses & gagal.
 4. `core_status.md` — apa yang sudah diverifikasi & riwayat keputusan.
 
-**Untuk pekerjaan implementasi (tambah endpoint/modul):** cukup `core_principles.md` §4–§7 + kontrak core terkait.
+**Untuk pekerjaan implementasi:** bangun dari nol → ikuti `flows/implementation-flow.md` (fase 0–4); tambah endpoint/modul di sistem jalan → cukup `core_principles.md` §4–§7 + kontrak core terkait; letak folder baru → rujuk `structures/`.
 
 ---
 
@@ -53,6 +58,8 @@ Jika kode berubah: **perbarui kontrak** (bukan mengabaikan kode), lalu catat di 
 | **Stabil** (`README.md`, `core_principles.md`) | Hanya saat arsitektur berubah — dengan baris changelog baru di `core_status.md` | Status pengerjaan, tanggal tugas, route spesifik |
 | **Per-project** (`examples/core_index.md` / `examples/core_index_<project>.md`) | Saat modul/route project berubah | Prinsip umum, status lintas project |
 | **Kontrak** (`core_*_api.md`) | Saat endpoint berubah (sinkron dengan kode) | Prinsip, changelog |
+| **Panduan** (`structures/`) | Saat pola folder/struktur stack berubah | Payload endpoint (kontrak), status pengerjaan |
+| **Panduan** (`flows/*.md`) | Saat urutan/prasyarat fase implementasi berubah | Payload endpoint (kontrak), status pengerjaan |
 | **Volatil** (`core_status.md`) | Bebas — memang tempatnya | Detail kontrak (rujuk ke `core_*_api.md`) |
 
 **Maintenance wajib:** ikuti checklist di `core_status.md` §4 (kode berubah → verifikasi ulang kontrak + perbarui tanggal).
